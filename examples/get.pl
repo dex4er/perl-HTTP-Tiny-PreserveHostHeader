@@ -3,11 +3,17 @@
 use strict;
 use warnings;
 
-use HTTP::Tiny;
+use lib 'lib', '../lib';
+
+use HTTP::Tiny::PreserveHostHeader;
 
 my $url = shift(@ARGV) || 'http://example.com';
 
-my $response = HTTP::Tiny->new->get($url);
+my %headers = (
+    Host => 'example.net',
+);
+
+my $response = HTTP::Tiny::PreserveHostHeader->new->get($url, { headers => \%headers });
 
 print "$response->{status} $response->{reason}\n";
 
