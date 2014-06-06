@@ -29,6 +29,9 @@ max_mccabe = 40
 [Subroutines::ProhibitUnusedPrivateSubroutines]
 allow = _agent _prepare_headers_and_cb
 
+[Subroutines::ProtectPrivateSubs]
+allow = HTTP::Tiny::_agent
+
 [Subroutines::RequireArgUnpacking]
 short_subroutine_statements = 2
 

@@ -6,7 +6,29 @@ HTTP::Tiny::PreserveHostHeader - preserve Host header on requests
 
 =head1 SYNOPSIS
 
+    use HTTP::Tiny::PreserveHostHeader;
+
+    my $response = HTTP::Tiny::PreserveHostHeader->new->get(
+        'http://example.com', { headers => {
+            Host => 'example.net',
+        } }
+    );
+
 =head1 DESCRIPTION
+
+This module extends L<HTTP::Tiny> and allows to preserve original C<Host>
+header from HTTP request.
+
+The L<HTTP::Tiny> is strictly compatible with HTTP 1.1 spec, section 14.23:
+
+  The Host field value MUST represent the naming authority of the origin
+  server or gateway given by the original URL.
+
+It means that L<HTTP::Tiny> always rewrite C<Host> header to the value
+taken from URL.
+
+Some non-standard HTTP clients, such as reverse HTTP proxy, need to override
+C<Host> header to other value.
 
 =for readme stop
 
@@ -43,7 +65,8 @@ sub _prepare_headers_and_cb {
 
 
 sub _agent {
-    my $class = ref($_[0]) || $_[0];
+    my ($self) = @_;
+    my $class = ref $self ? ref $self : $self;
     (my $default_agent = $class) =~ s{::}{-}g;
     return $default_agent . "/" . ($class->VERSION || 0) . " " . HTTP::Tiny->_agent;
 }
