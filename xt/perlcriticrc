@@ -27,7 +27,7 @@ max_mccabe = 40
 [-Subroutines::ProhibitSubroutinePrototypes]
 
 [Subroutines::ProhibitUnusedPrivateSubroutines]
-allow = _prepare_headers_and_cb
+allow = _agent _prepare_headers_and_cb
 
 [Subroutines::RequireArgUnpacking]
 short_subroutine_statements = 2

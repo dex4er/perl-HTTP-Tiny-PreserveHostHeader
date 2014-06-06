@@ -42,6 +42,13 @@ sub _prepare_headers_and_cb {
 }
 
 
+sub _agent {
+    my $class = ref($_[0]) || $_[0];
+    (my $default_agent = $class) =~ s{::}{-}g;
+    return $default_agent . "/" . ($class->VERSION || 0) . " " . HTTP::Tiny->_agent;
+}
+
+
 1;
 
 
