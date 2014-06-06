@@ -7,10 +7,10 @@ use lib 'lib', '../lib';
 
 use HTTP::Tiny::PreserveHostHeader;
 
-my $url = shift(@ARGV) || 'http://example.com';
+my $url = shift(@ARGV) || 'http://www.xhaus.com/headers';
 
 my %headers = (
-    Host => 'example.net',
+    Host => 'example.com',
 );
 
 my $response = HTTP::Tiny::PreserveHostHeader->new->get($url, { headers => \%headers });
