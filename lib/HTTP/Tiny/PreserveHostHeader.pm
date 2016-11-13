@@ -53,12 +53,15 @@ sub _prepare_headers_and_cb {
     my $host;
 
     while (my ($k, $v) = each %{$args->{headers}}) {
-        $host = $v if lc $k eq 'host';
+        if (lc $k eq 'host') {
+            $host = $v;
+            delete $args->{headers}{$k};
+        }
     }
 
     $self->SUPER::_prepare_headers_and_cb($request, $args, $url, $auth);
 
-    $request->{headers}{'host'} = $host if $host;
+    $request->{headers}{host} = $host if $host;
 
     return;
 }
