@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/dex4er/perl-HTTP-Tiny-PreserveHostHeader.png?branch=master)](https://travis-ci.org/dex4er/perl-HTTP-Tiny-PreserveHostHeader)
-
+[![Build Status](https://travis-ci.org/dex4er/perl-HTTP-Tiny-PreserveHostHeader.png?branch=master)](https://travis-ci.org/dex4er/perl-HTTP-Tiny-PreserveHostHeader)n
 # NAME
 
 HTTP::Tiny::PreserveHostHeader - preserve Host header on requests
@@ -48,7 +47,7 @@ Piotr Roszatycki <dexter@cpan.org>
 
 # LICENSE
 
-Copyright (c) 2014 Piotr Roszatycki <dexter@cpan.org>.
+Copyright (c) 2014-2016 Piotr Roszatycki <dexter@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as perl itself.
