@@ -8,7 +8,6 @@
 \B\.gitignore$
 \B\.bzr\b
 \B\.bzrignore$
-\B\.travis.yml$
 
 # Avoid Makemaker generated and utility files.
 \bMakefile$
@@ -56,11 +55,12 @@
 \bDebian_CPANTS.txt$
 -stamp$
 
-# Avoid Eclipse files
+# Avoid editors files
 .cproject
 .includepath
 .project
 .settings
+.vscode
 
 # Avoid distdir
 \d+\.\d+\b
@@ -72,3 +72,6 @@
 \btest-
 \.exe$
 \.o$
+
+# Avoid dot files
+^\.(?!perlcritic)

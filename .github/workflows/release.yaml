@@ -1,0 +1,59 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "*"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Release
+
+    permissions:
+      id-token: write
+      contents: write
+
+    runs-on: ubuntu-latest
+
+    container:
+      image: perldocker/perl-tester:5.36
+
+    steps:
+      - uses: actions/cache@v3
+        with:
+          path: ~/.cpanm/sources
+          key: cpanm-${{ runner.os }}-release-${{ hashFiles('Build.PL') }}
+          restore-keys: |
+            cpanm-${{ runner.os }}-
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install cpanmw
+        run: cpanm --notest --skip-satisfied App::cpanmw
+
+      - name: Install required dependencies
+        run: cpanmw --with-recommends --installdeps --notest --skip-satisfied .
+
+      - name: Install extra dependencies
+        run: cpanmw --notest --skip-satisfied $(cat xt/cpanm.txt)
+
+      - name: Install pause CLI
+        run: cpanmw --notest --skip-satisfied App::pause Data::Sah::Type::str
+
+      - name: Make distribution
+        run: ./Dist.SH
+
+      - name: Configure pause CLI
+        run: |
+          cat > ~/pause.conf <<END
+          username=${{ vars.PAUSE_USERNAME }}
+          password=${{ secrets.PAUSE_PASSWORD }}
+          END
+
+      - name: Upload distribution
+        run: pause upload *-${{ github.ref_name }}.tar.gz

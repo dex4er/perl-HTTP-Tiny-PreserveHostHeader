@@ -3,14 +3,15 @@ severity = 3
 verbose = 4
 
 [ControlStructures::ProhibitCascadingIfElse]
-max_elsif = 8
-
-[-ControlStructures::ProhibitNegativeExpressionsInUnlessAndUntilConditions]
+max_elsif = 5
 
 [-ErrorHandling::RequireCarping]
 
+[InputOutput::RequireBriefOpen]
+lines = 100
+
 [Modules::ProhibitExcessMainComplexity]
-max_mccabe = 32
+max_mccabe = 30
 
 [NamingConventions::ProhibitAmbiguousNames]
 forbid = last set left right no abstract contract record second
@@ -26,25 +27,26 @@ max_mccabe = 40
 
 [-Subroutines::ProhibitSubroutinePrototypes]
 
-[Subroutines::ProhibitUnusedPrivateSubroutines]
-allow = _agent _prepare_headers_and_cb
-
-[Subroutines::ProtectPrivateSubs]
-allow = HTTP::Tiny::_agent
-
 [Subroutines::RequireArgUnpacking]
 short_subroutine_statements = 2
+
+[-Subroutines::RequireFinalReturn]
 
 [TestingAndDebugging::ProhibitNoStrict]
 allow = vars subs refs
 
 [TestingAndDebugging::ProhibitNoWarnings]
-allow_with_category_restriction = 1
+allow = all
 
 [TestingAndDebugging::ProhibitProlongedStrictureOverride]
 statements = 12
 
 [-ValuesAndExpressions::ProhibitConstantPragma]
 
-[Variables::ProhibitReusedNames]
-allow = $self
+[-ValuesAndExpressions::ProhibitFiletest_f]
+[Variables::ProhibitPackageVars]
+
+add_packages = Carp
+
+[Variables::RequireLocalizedPunctuationVars]
+allow = %ENV
