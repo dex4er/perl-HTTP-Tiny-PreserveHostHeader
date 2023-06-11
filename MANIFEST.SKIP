@@ -56,11 +56,11 @@
 -stamp$
 
 # Avoid editors files
-.cproject
-.includepath
-.project
-.settings
-.vscode
+^.cproject\b
+^.includepath\b
+^.project\b
+^.settings\b
+^.vscode\b
 
 # Avoid distdir
 \d+\.\d+\b
@@ -75,3 +75,6 @@
 
 # Avoid dot files
 ^\.(?!perlcritic)
+
+# Avoid cpm
+^local\b
