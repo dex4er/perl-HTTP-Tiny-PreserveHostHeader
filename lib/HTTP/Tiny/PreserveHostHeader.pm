@@ -49,7 +49,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.0100';
+our $VERSION = '0.0101';
 
 use parent qw(HTTP::Tiny);
 
