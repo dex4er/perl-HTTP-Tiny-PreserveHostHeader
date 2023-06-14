@@ -27,7 +27,7 @@ my $build = Module::Build->new(
     create_license          => 1,
     recursive_test_files    => 0,
     add_to_cleanup          => [
-        '*.bak',    '*.gz',       '*.tgz',    '*.ppd', '*.ppmx', '*.deb', '*.bat',
+        '*.bak', '*.gz', '*.tgz', '*.ppd', '*.ppmx', '*.deb', '*.bat',
         'Makefile', 'pm_to_blib', 'cover_db', 'Debian_CPANTS.txt',
         "$dist-*",
     ],
