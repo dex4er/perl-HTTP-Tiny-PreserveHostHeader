@@ -4,6 +4,7 @@ requires 'HTTP::Tiny';
 
 on build => sub {
     requires 'Module::Build';
+    requires 'Module::CPANfile';
 };
 
 on test => sub {

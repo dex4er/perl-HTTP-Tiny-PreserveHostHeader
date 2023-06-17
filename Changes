@@ -1,3 +1,7 @@
+0.0102  2023-06-17      Piotr Roszatycki <dexter@cpan.org>
+
+* Use cpanfile for Module::Build.
+
 0.0101  2023-06-11      Piotr Roszatycki <dexter@cpan.org>
 
 * Provides cpanfile.
