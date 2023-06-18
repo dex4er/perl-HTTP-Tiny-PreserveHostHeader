@@ -2,7 +2,7 @@ requires 'perl', '5.006';
 
 requires 'HTTP::Tiny';
 
-on build => sub {
+on configure => sub {
     requires 'Module::Build';
     requires 'Module::CPANfile';
 };

@@ -2,7 +2,7 @@ package HTTP::Tiny::PreserveHostHeader;
 
 =head1 NAME
 
-HTTP::Tiny::PreserveHostHeader - preserve Host header on requests
+HTTP::Tiny::PreserveHostHeader - Preserve Host header on requests
 
 =head1 SYNOPSIS
 
@@ -49,7 +49,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.0102';
+our $VERSION = '0.0103';
 
 use parent qw(HTTP::Tiny);
 

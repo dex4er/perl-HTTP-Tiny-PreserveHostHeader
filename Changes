@@ -1,3 +1,7 @@
+0.0103  2023-06-18      Piotr Roszatycki <dexter@cpan.org>
+
+* Correct configure requirements.
+
 0.0102  2023-06-17      Piotr Roszatycki <dexter@cpan.org>
 
 * Use cpanfile for Module::Build.
