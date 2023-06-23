@@ -6,7 +6,7 @@
 
 ## NAME
 
-HTTP::Tiny::PreserveHostHeader - preserve Host header on requests
+HTTP::Tiny::PreserveHostHeader - Preserve Host header on requests
 
 ## SYNOPSIS
 
